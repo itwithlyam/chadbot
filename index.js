@@ -19,6 +19,12 @@ const cooldowns = new Discord.Collection();
 client.once('ready', () => {
     console.log("bot online")
 });
+process.on('unhandledRejection', error => {
+	console.error('Unhandled promise rejection:', error);
+});
+process.on('DiscordAPIError', error => {
+    console.error('DiscordAPIError:', error);
+})
 
 client.on('message', message => {
 
