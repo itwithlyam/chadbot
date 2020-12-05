@@ -1,3 +1,5 @@
+*.md
+
 # Logs
 logs
 *.log
@@ -44,7 +46,8 @@ jspm_packages/
 # TypeScript v1 declaration files
 typings/
 
-# TypeScript cache
+# TypeScript cacheLatest commit
+
 *.tsbuildinfo
 
 # Optional npm cache directory
