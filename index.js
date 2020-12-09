@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const prefix = "!"
+const { prefix } = require('./config.json');
 const fs = require("fs");
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
@@ -70,7 +70,7 @@ client.on('message', message => {
 
 
     try {
-        command.execute(message, args);
+        command.execute(message, args, Discord, client);
         timestamps.set(message.author.id, now);
         setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
     } catch (error) {
@@ -79,4 +79,4 @@ client.on('message', message => {
     }
 });
 
-client.login("NzI5NzI0ODQ5NDEyNjM2NzAy.XwNHOQ.zUaDoM80sqeRLwO-tG--E9tvI_g");
+client.login("NzI5NzI0ODQ5NDEyNjM2NzAy.XwNHOQ.xygQ7Ik3X9lGm_Sqt-9ILWYkv3I");
