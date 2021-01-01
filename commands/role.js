@@ -5,6 +5,7 @@ module.exports = {
     guildOnly: true,
     usage: '<user> <role name>',
     execute(message, args) {
+        if (!message.member.hasPermission('MANAGE_MEMBERS')) return message.reply('you need to have MANAGE_MEMBERS permissions to use this command.')
         let role = message.guild.roles.cache.find(r => r.name === args.slice(1).join());
         let user = message.mentions.members.first()
         if (!user.roles.cache.some(role => role.name === args.slice(1).join())) {

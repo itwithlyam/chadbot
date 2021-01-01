@@ -7,7 +7,7 @@ module.exports = {
     guildOnly: true,
     usage: '<message>',
     execute(message, args, Discord, client) {
-        
+        if (!message.member.hasPermission('MANAGE_GUILD')) return message.reply('you need to have MANAGE_GUILD permissions to use this command.')
         let messagee = args.join()
         messagee = messagee.replace(/\,/g, " ");
         const embed = new Discord.MessageEmbed()

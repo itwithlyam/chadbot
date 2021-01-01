@@ -6,8 +6,7 @@ module.exports = {
     guildOnly: true,
     execute(message, args) {
         const user = message.mentions.members.first()
-        const content = args.slice(1).join();
-        content.replace(/,/g," ");
+        const content = args.slice(1).join(' ');
         user.send(content);
     },
 }
